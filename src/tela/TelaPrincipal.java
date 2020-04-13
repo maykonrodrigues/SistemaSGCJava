@@ -5,6 +5,7 @@
  */
 package tela;
 
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,19 +31,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem4 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        Desktop = new javax.swing.JDesktopPane();
+        Menu = new javax.swing.JMenuBar();
+        jMnArquivo = new javax.swing.JMenu();
+        jMnSair = new javax.swing.JMenuItem();
+        jMnCadastro = new javax.swing.JMenu();
+        jMnClientes = new javax.swing.JMenuItem();
+        jMnFornecedores = new javax.swing.JMenuItem();
+        jMnUsuarios = new javax.swing.JMenuItem();
+        jMnRelatorios = new javax.swing.JMenu();
+        jMnOpcoes = new javax.swing.JMenu();
+        jMnAjuda = new javax.swing.JMenu();
+        jMnSobre = new javax.swing.JMenuItem();
 
         jMenuItem4.setText("jMenuItem4");
 
@@ -50,16 +50,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setTitle("Sistema SGC");
         setResizable(false);
 
-        jDesktopPane2.setBackground(new java.awt.Color(204, 204, 204));
+        Desktop.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
+        Desktop.setLayout(DesktopLayout);
+        DesktopLayout.setHorizontalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 753, Short.MAX_VALUE)
         );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        DesktopLayout.setVerticalGroup(
+            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
@@ -67,58 +67,68 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2)
+            .addComponent(Desktop)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2)
+            .addComponent(Desktop)
         );
 
-        jMenu3.setText("Arquivo");
-        jMenu3.add(jSeparator1);
+        jMnArquivo.setText("Arquivo");
 
-        jMenuItem1.setText("Sair");
-        jMenu3.add(jMenuItem1);
-
-        jMenuBar2.add(jMenu3);
-
-        jMenu2.setText("Cadastro");
-
-        jMenuItem2.setText("Clientes");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setText("Fornecedores");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMnSair.setText("Sair");
+        jMnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMnSairActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMnArquivo.add(jMnSair);
 
-        jMenuItem6.setText("Usuários");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        Menu.add(jMnArquivo);
+
+        jMnCadastro.setText("Cadastro");
+
+        jMnClientes.setText("Clientes");
+        jMnCadastro.add(jMnClientes);
+
+        jMnFornecedores.setText("Fornecedores");
+        jMnFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMnFornecedoresActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        jMnCadastro.add(jMnFornecedores);
 
-        jMenuBar2.add(jMenu2);
+        jMnUsuarios.setText("Usuários");
+        jMnUsuarios.setEnabled(false);
+        jMnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnUsuariosActionPerformed(evt);
+            }
+        });
+        jMnCadastro.add(jMnUsuarios);
 
-        jMenu4.setText("Relatórios");
-        jMenuBar2.add(jMenu4);
+        Menu.add(jMnCadastro);
 
-        jMenu5.setText("Opções");
-        jMenuBar2.add(jMenu5);
+        jMnRelatorios.setText("Relatórios");
+        Menu.add(jMnRelatorios);
 
-        jMenu1.setText("Ajuda");
+        jMnOpcoes.setText("Opções");
+        Menu.add(jMnOpcoes);
 
-        jMenuItem5.setText("Sobre");
-        jMenu1.add(jMenuItem5);
+        jMnAjuda.setText("Ajuda");
 
-        jMenuBar2.add(jMenu1);
+        jMnSobre.setText("Sobre");
+        jMnSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnSobreActionPerformed(evt);
+            }
+        });
+        jMnAjuda.add(jMnSobre);
 
-        setJMenuBar(jMenuBar2);
+        Menu.add(jMnAjuda);
+
+        setJMenuBar(Menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,13 +145,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnFornecedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMnFornecedoresActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMnUsuariosActionPerformed
+
+    private void jMnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnSairActionPerformed
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMnSairActionPerformed
+
+    private void jMnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnSobreActionPerformed
+        TelaSobre sobre = new TelaSobre();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_jMnSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,20 +201,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JDesktopPane Desktop;
+    private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenu jMnAjuda;
+    private javax.swing.JMenu jMnArquivo;
+    private javax.swing.JMenu jMnCadastro;
+    private javax.swing.JMenuItem jMnClientes;
+    private javax.swing.JMenuItem jMnFornecedores;
+    private javax.swing.JMenu jMnOpcoes;
+    private javax.swing.JMenu jMnRelatorios;
+    private javax.swing.JMenuItem jMnSair;
+    private javax.swing.JMenuItem jMnSobre;
+    public static javax.swing.JMenuItem jMnUsuarios;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
