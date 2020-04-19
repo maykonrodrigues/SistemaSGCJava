@@ -35,6 +35,8 @@ public class TelaLogin extends javax.swing.JFrame {
             rs = pst.executeQuery();
             //se existir usuário e senha correspondente
             if (rs.next()) {//verifica se a consulta sql acima retornou um usuario conforme os parametros digitados pelo usuário
+                //a linha abaixo obtem o conteúdo do campo perfil da tabela tbusuarios
+                
                 //Chamada do formulário tela principal
                 TelaPrincipal principal = new TelaPrincipal();
                 principal.setVisible(true);
@@ -46,7 +48,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido(s)");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro de conexão com o banco de dados: " +e);
+            JOptionPane.showMessageDialog(null, "Erro de conexão com o banco de dados: " + e);
         }
     }
 

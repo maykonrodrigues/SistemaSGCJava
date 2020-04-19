@@ -5,6 +5,8 @@
  */
 package tela;
 
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,6 +51,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema SGC");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         Desktop.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -145,6 +155,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fechaAplicativo() {
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }
+
     private void jMnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnFornecedoresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMnFornecedoresActionPerformed
@@ -154,16 +171,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMnUsuariosActionPerformed
 
     private void jMnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnSairActionPerformed
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
-        if (sair == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
+        this.fechaAplicativo();
     }//GEN-LAST:event_jMnSairActionPerformed
 
     private void jMnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnSobreActionPerformed
         TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
     }//GEN-LAST:event_jMnSobreActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.fechaAplicativo();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
